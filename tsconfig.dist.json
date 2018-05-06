@@ -1,0 +1,9 @@
+// Config for the library
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./dist",
+    "declaration": true
+  },
+  "files": ["src/index.tsx"]
+}
