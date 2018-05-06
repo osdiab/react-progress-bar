@@ -6,19 +6,59 @@
   "author": "Omar Diab <me@omardiab.com>",
   "license": "MIT",
   "private": false,
+  "scripts": {
+    "build": "tsc -p tsconfig.dist.json && cp src/index.css dist/",
+    "test": "jest",
+    "lint": "tslint -p .",
+    "lint:fix": "prettier --write && tslint -p . --fix",
+    "storybook": "start-storybook -p 6006",
+    "deploy-storybook:manual": "storybook-to-ghpages",
+    "deploy-storybook:ci": "storybook-to-ghpages -- --ci"
+  },
   "devDependencies": {
+    "@storybook/addon-actions": "^3.4.3",
+    "@storybook/addon-links": "^3.4.3",
+    "@storybook/addons": "^3.4.3",
+    "@storybook/react": "^3.4.3",
+    "@storybook/storybook-deployer": "^2.3.0",
+    "@types/classnames": "^2.2.3",
     "@types/jest": "^22.2.3",
     "@types/react": "^16.3.13",
     "@types/react-dom": "^16.0.5",
+    "@types/storybook__addon-actions": "^3.0.3",
+    "@types/storybook__addon-links": "^3.3.0",
+    "@types/storybook__react": "^3.0.7",
+    "babel-core": "^6.26.3",
+    "babel-runtime": "^6.26.0",
     "jest": "^22.4.3",
     "prettier": "^1.12.1",
+    "react": "^16.3.2",
     "react-dom": "^16.3.2",
+    "ts-jest": "^22.4.5",
+    "ts-loader": "^3.5.0",
     "tslint": "^5.10.0",
     "tslint-config-prettier": "^1.12.0",
     "tslint-react": "^3.5.1",
     "typescript": "^2.8.3"
   },
   "dependencies": {
+    "classnames": "^2.2.5"
+  },
+  "peerDependencies": {
     "react": "^16.3.2"
+  },
+  "typings": "dist/index.d.ts",
+  "jest": {
+    "transform": {
+      ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "mapCoverage": true,
+    "testPathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "tsx"
+    ]
   }
 }
