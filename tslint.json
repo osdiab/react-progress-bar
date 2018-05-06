@@ -1,6 +1,8 @@
 {
   "extends": ["tslint:latest", "tslint-react", "tslint-config-prettier"],
   "rules": {
+    // necessary since this is a library, and we need to use dev deps
+    "no-implicit-dependencies": false,
     // I think putting I in front of interface names doesn't get us anything
     "interface-name": false,
     // Sorting keys of object literals is meaningless
