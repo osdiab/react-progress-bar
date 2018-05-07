@@ -1,0 +1,8 @@
+.fancyBar {
+  border: 3px red solid;
+  height: 15px;
+}
+
+.fancyBar--progressBar {
+  background: purple;
+}
