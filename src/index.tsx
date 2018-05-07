@@ -33,12 +33,17 @@ const ProgressBar: React.StatelessComponent<Props> = ({
   className,
   type = ProgressBarType.LINE
 }) => {
-  const fullClassName = classnames([
+  const fullClassName = classnames(
     BASE_CLASSNAME,
     genClassName(`type-${type}`),
     className
-  ]);
-  const progressClassName = classnames([genClassName("progressBar")]);
+  );
+  const progressClassName = classnames(
+    genClassName("progressBar"),
+    className
+      ? concatClassNames(CLASSNAME_DELIMITER, className, "progressBar")
+      : undefined
+  );
   return (
     <div className={fullClassName}>
       <div className={progressClassName} style={{ width: `${progress}%` }} />
