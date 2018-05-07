@@ -57,12 +57,12 @@
       ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
     },
     "mapCoverage": true,
-    "testPathIgnorePatterns": [
-      "/node_modules/"
-    ],
-    "moduleFileExtensions": [
-      "ts",
-      "tsx"
-    ]
+    "testPathIgnorePatterns": ["/node_modules/"],
+    "moduleFileExtensions": ["ts", "tsx"]
+  },
+  "storybook-deployer": {
+    "gitUsername": "osdiab-deploybot",
+    "gitEmail": "me+deploybot@omardiab.com",
+    "commitMessage": "Deploy Storybook to GitHub Pages [skip ci]"
   }
 }
