@@ -1,7 +1,16 @@
 import * as React from "react";
 
+import SyntaxHighlighter, {
+  registerLanguage
+} from "react-syntax-highlighter/prism-light";
+import jsx from "react-syntax-highlighter/languages/prism/jsx";
+import prism from "react-syntax-highlighter/styles/prism/prism";
+registerLanguage("jsx", jsx);
+
 import { storiesOf } from "@storybook/react";
 import ProgressBar from "../";
+import "../index.css";
+import "./stories.css";
 
 interface BasicExampleState {
   progress: number;
@@ -10,7 +19,7 @@ interface BasicExampleState {
   randomValueInterval?: number;
 }
 
-class BasicExample extends React.Component<{}, BasicExampleState> {
+class LineExample extends React.Component<{}, BasicExampleState> {
   constructor(props: {}) {
     super(props);
     this.state = {
@@ -20,7 +29,7 @@ class BasicExample extends React.Component<{}, BasicExampleState> {
 
   public componentDidMount() {
     this.setState({
-      randomValueInterval: setInterval(this.randomlyAdjustValue, 3000)
+      randomValueInterval: window.setInterval(this.randomlyAdjustValue, 3000)
     });
   }
 
@@ -47,6 +56,11 @@ class BasicExample extends React.Component<{}, BasicExampleState> {
   public render() {
     return (
       <article>
+        <h1>
+          <code>ProgressBarType.LINE</code>
+        </h1>
+        <p>A progress bar rendered as a line.</p>
+        <h2>Example</h2>
         <label style={{ display: "flex", alignItems: "center" }}>
           Progress bar value
           <input
@@ -57,17 +71,21 @@ class BasicExample extends React.Component<{}, BasicExampleState> {
           />
           <span>{this.state.progress}</span>
         </label>
-
-        <h2>Output</h2>
+        <h3>Output</h3>
         <ProgressBar progress={this.state.progress} />
+        <h3>Code</h3>
+        <SyntaxHighlighter language="jsx" style={prism}>
+          {`import ProgressBar, { ProgressBarType } from "react-progress-bar";
 
-        <h2>Code</h2>
-        <pre>
-          <code>{`<ProgressBar progress={${this.state.progress}} />`}</code>
-        </pre>
+<ProgressBar progress={${this.state.progress}} />
+// or
+<ProgressBar type={ProgressBarType.LINE} progress={${this.state.progress}} />`}
+        </SyntaxHighlighter>
       </article>
     );
   }
 }
 
-storiesOf("ProgressBar", module).add("basic", () => <BasicExample />);
+storiesOf("ProgressBar", module).add("ProgressBarType.LINE", () => (
+  <LineExample />
+));
