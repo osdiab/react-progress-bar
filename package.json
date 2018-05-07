@@ -7,7 +7,8 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "build": "tsc -p tsconfig.dist.json && cp src/index.css dist/",
+    "build":
+      "rm -rf dist && tsc -p tsconfig.dist.json && cp src/index.css dist/",
     "test": "jest",
     "lint": "tslint -p .",
     "lint:fix": "prettier --write && tslint -p . --fix",
@@ -62,14 +63,8 @@
     },
     "testRegex": "test.tsx?$",
     "mapCoverage": true,
-    "testPathIgnorePatterns": [
-      "/node_modules/"
-    ],
-    "moduleFileExtensions": [
-      "js",
-      "ts",
-      "tsx"
-    ],
+    "testPathIgnorePatterns": ["/node_modules/"],
+    "moduleFileExtensions": ["js", "ts", "tsx"],
     "setupTestFrameworkScriptFile": "<rootDir>/src/setupTests.js"
   },
   "storybook-deployer": {
