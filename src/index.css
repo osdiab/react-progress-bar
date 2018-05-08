@@ -12,3 +12,24 @@
   transition: width 0.2s ease;
   border-radius: 2px;
 }
+
+.osdiab--react-progress-bar--type-steps {
+  display: inline-block;
+}
+
+.osdiab--react-progress-bar--type-steps--step {
+  background: green;
+  height: 10px;
+  width: 10px;
+  transition: opacity 0.1s;
+  display: inline-block;
+  margin-right: 10px;
+  border-radius: 5px;
+}
+
+.osdiab--react-progress-bar--type-steps--step--incomplete {
+  opacity: 0;
+}
+.osdiab--react-progress-bar--type-steps--step--complete {
+  opacity: 1;
+}
