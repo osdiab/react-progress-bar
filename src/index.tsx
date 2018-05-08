@@ -1,14 +1,13 @@
 import * as React from "react";
 import * as classnames from "classnames";
 
-import LineProgressBar from "./LineProgressBar";
-import {
-  BASE_CLASSNAME,
-  genClassNameWithLibraryDefaultBase
-} from "./util/classNames";
+import LineProgressBar, { Props as LineProps } from "./LineProgressBar";
+import StepsProgressBar, { Props as StepsProps } from "./StepsProgressBar";
+import { genClassNameWithLibraryDefaultBase } from "./util/classNames";
 
 export enum ProgressBarType {
-  LINE = "line"
+  LINE = "line",
+  STEPS = "steps"
 }
 
 export interface BaseProps {
@@ -16,28 +15,39 @@ export interface BaseProps {
   className?: string;
 }
 
-export interface Props extends BaseProps {
-  type?: ProgressBarType;
-}
+type TopLevelLineProps = {
+  type?: ProgressBarType.LINE;
+} & LineProps;
+type TopLevelStepsProps = {
+  type: ProgressBarType.STEPS;
+} & StepsProps;
+export type Props = TopLevelLineProps | TopLevelStepsProps;
 
-export const baseClassName = (type: ProgressBarType, className?: string) =>
-  classnames(
-    BASE_CLASSNAME,
-    genClassNameWithLibraryDefaultBase(`type-${type}`),
-    className
-  );
-
-const ProgressBar: React.StatelessComponent<Props> = ({
-  progress,
-  className,
-  type = ProgressBarType.LINE
-}) => {
-  switch (type) {
+const ProgressBar: React.StatelessComponent<Props> = props => {
+  switch (props.type) {
     default:
-      throw new Error("Invalid ProgressBar Type"); // fallthrough to LINE
+      // @ts-ignore This is for non-typescript consumers
+      throw new Error(`Invalid ProgressBar type: ${props.type}`); // fallthrough to LINE
+    case undefined:
     case ProgressBarType.LINE:
-      return <LineProgressBar progress={progress} className={className} />;
+      return (
+        <LineProgressBar
+          progress={props.progress}
+          className={props.className}
+        />
+      );
+    case ProgressBarType.STEPS:
+      return (
+        <StepsProgressBar
+          progress={props.progress}
+          className={props.className}
+          numSteps={props.numSteps}
+        />
+      );
   }
 };
 
 export default ProgressBar;
+
+export const genBaseClassName = (type: ProgressBarType, className?: string) =>
+  classnames(genClassNameWithLibraryDefaultBase(`type-${type}`), className);
