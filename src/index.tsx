@@ -15,10 +15,10 @@ export interface BaseProps {
   className?: string;
 }
 
-type TopLevelLineProps = {
+export type TopLevelLineProps = {
   type?: ProgressBarType.LINE;
 } & LineProps;
-type TopLevelStepsProps = {
+export type TopLevelStepsProps = {
   type: ProgressBarType.STEPS;
 } & StepsProps;
 export type Props = TopLevelLineProps | TopLevelStepsProps;
