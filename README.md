@@ -1,8 +1,9 @@
-# react-progress-bar
+# react-progress-pole
 
-React Progress Bar Component written in TypeScript
+React Progress Bar Component written in TypeScript. Why `react-progress-pole`?
+Because `bar` was already taken.
 
-## [Docs & Demo](https://omardiab.com/react-progress-bar)
+## [Docs & Demo](https://omardiab.com/react-progress-pole)
 
 ## Developing
 

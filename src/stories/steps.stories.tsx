@@ -84,7 +84,7 @@ class BasicExample extends React.Component<{}, BasicExampleState> {
         />
         <h3>Code</h3>
         <SyntaxHighlighter language="jsx" style={prism}>
-          {`import ProgressBar, { ProgressBarType } from "react-progress-bar";
+          {`import ProgressBar, { ProgressBarType } from "react-progress-pole";
 
 <ProgressBar
   type={ProgressBarType.STEPS}

@@ -1,5 +1,5 @@
 {
-  "name": "react-progress-bar",
+  "name": "react-progress-pole",
   "version": "0.0.1",
   "description": "React Typescript Progress Bar Impl",
   "main": "dist/index.js",

@@ -6,7 +6,7 @@ export const CLASSNAME_DELIMITER = "--";
 export const BASE_CLASSNAME = concatClassNames(
   CLASSNAME_DELIMITER,
   "osdiab",
-  "react-progress-bar"
+  "react-progress-pole"
 );
 
 export function concatClassNames(
