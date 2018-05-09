@@ -1,7 +1,7 @@
 {
   "name": "react-progress-pole",
   "version": "0.0.1",
-  "description": "React Typescript Progress Bar Impl",
+  "description": "React Typescript progress bar reusable component",
   "main": "dist/index.js",
   "author": "Omar Diab <me@omardiab.com>",
   "license": "MIT",
