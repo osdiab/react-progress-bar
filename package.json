@@ -1,6 +1,6 @@
 {
   "name": "react-progress-pole",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "React Typescript progress bar reusable component",
   "main": "dist/index.js",
   "author": "Omar Diab <me@omardiab.com>",
@@ -16,8 +16,7 @@
     "ui"
   ],
   "scripts": {
-    "build":
-      "rm -rf dist && tsc -p tsconfig.dist.json && cp src/index.css dist/",
+    "build": "rm -rf dist && tsc -p tsconfig.dist.json && cp src/index.css dist/",
     "test": "jest",
     "lint": "tslint -p .",
     "lint:fix": "prettier --write && tslint -p . --fix",
@@ -70,8 +69,14 @@
     },
     "testRegex": "test.tsx?$",
     "mapCoverage": true,
-    "testPathIgnorePatterns": ["/node_modules/"],
-    "moduleFileExtensions": ["js", "ts", "tsx"],
+    "testPathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "ts",
+      "tsx"
+    ],
     "setupTestFrameworkScriptFile": "<rootDir>/src/setupTests.js"
   },
   "storybook-deployer": {
