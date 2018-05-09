@@ -6,6 +6,15 @@
   "author": "Omar Diab <me@omardiab.com>",
   "license": "MIT",
   "private": false,
+  "keywords": [
+    "react",
+    "component",
+    "progress",
+    "loading",
+    "steps",
+    "react-component",
+    "ui"
+  ],
   "scripts": {
     "build":
       "rm -rf dist && tsc -p tsconfig.dist.json && cp src/index.css dist/",
